@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.urszeidler.ethereum.smartcontract</groupId>
+  <artifactId>smart-contract-management</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+
+  <name>smart-contract-management</name>
+  <description>A basic project to use java with ethereum, using ethereumj  or webj3 thru the eth-contract-api.</description>
+
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>2.12</version>
+      </extension>
+    
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.4</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    
+  </build>
+    <distributionManagement>
+    <repository>
+      <id>ssh-repository</id>
+      <url>scp://root@urszeidler.de:22222/var/www/software/html/maven/repository</url>
+    </repository>
+  </distributionManagement>
+  
+  <url>https://github.com/UrsZeidler/smart-contract-maven-archetypes</url>
+  <issueManagement>
+  	<system>GitHub Issues</system>
+  	<url>https://github.com/UrsZeidler/smart-contract-maven-archetypes/issues</url>
+  </issueManagement>
+</project>

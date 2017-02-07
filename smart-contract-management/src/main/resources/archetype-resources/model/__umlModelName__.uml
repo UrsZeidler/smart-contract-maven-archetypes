@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Q29hgOxfEeaG14CB8JwmSw" name="contracts">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Q29hgexfEeaG14CB8JwmSw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/solidity_types.uml#_N0uwUKKsEeWvY9GWZZMftw"/>
+  </packageImport>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Q29hguxfEeaG14CB8JwmSw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Syk5oOxfEeaG14CB8JwmSw" source="PapyrusVersion">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5oexfEeaG14CB8JwmSw" key="Version" value="0.0.37"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5ouxfEeaG14CB8JwmSw" key="Comment" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5o-xfEeaG14CB8JwmSw" key="Copyright" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5pOxfEeaG14CB8JwmSw" key="Date" value="2017-01-02"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5pexfEeaG14CB8JwmSw" key="Author" value="Urs Zeidler"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Q29hiexfEeaG14CB8JwmSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILE/solidity_profiles.uml#_rT6-ANC_Eea9y7gMoC2t4Q"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILE/solidity_profiles.uml#_uCE5EKHREeWjOZ0I8ilEXA"/>
+  </profileApplication>
+</uml:Model>
