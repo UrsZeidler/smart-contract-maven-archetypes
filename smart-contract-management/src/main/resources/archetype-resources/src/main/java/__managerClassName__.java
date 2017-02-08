@@ -88,7 +88,6 @@ public class ${managerClassName} {
 				e.printStackTrace();
 			}
 
-			//EthereumInstance.getInstance().getEthereum().shutdown();
 		} catch (ParseException e1) {
 			System.out.println(e1.getMessage());
 			printHelp(options);
