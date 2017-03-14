@@ -43,7 +43,7 @@
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_string" value="String"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint" value="Integer"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint256" value="Integer"/>
-<stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="de.urszeidler.checksum"/>
+<stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="${package}"/>
 <stringAttribute key="GENERATION_JAVA_INTERFACE_TARGET" value="/${artifactId}/src/main/java"/>
 <stringAttribute key="GENERATION_JAVA_TEST_TARGET" value="/${artifactId}/src/test/java"/>
 <stringAttribute key="GENERATION_TARGET" value="/${artifactId}/src/main/resources/contracts"/>

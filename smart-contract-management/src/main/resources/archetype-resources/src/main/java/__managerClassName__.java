@@ -25,16 +25,16 @@ import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import de.urszeidler.checksum.deployer.ContractDeployer;
+
 /**
- * @author urs
+ * @author 
  *
  */
 public class ${managerClassName} {
 
 	private EthereumFacade ethereum;
 //	private ContractDeployer deployer;
-//	private EthereumInstance.DeployDuo<ChecksumDatabase> manager;
-
 	private long millis;
 	private EthAccount sender;
 
@@ -66,26 +66,25 @@ public class ${managerClassName} {
 			if (commandLine.hasOption("sp"))
 				senderPass = commandLine.getOptionValue("sp");
 
-			${managerClassName} checksumManager = new ${managerClassName}();
+			${managerClassName} manager = new ${managerClassName}();
 
 			try {
-				checksumManager.init(senderKey, senderPass, managerAddress);
+				manager.init(senderKey, senderPass, managerAddress);
 				if (commandLine.hasOption("f")) {
 					String[] values = commandLine.getOptionValues("f");
 
 					String filename = values[0];
 					String isCompiled = values[1]; 
-					//checksumManager.deployer.setContractSource(filename, Boolean.parseBoolean(isCompiled));
+					//manager.deployer.setContractSource(filename, Boolean.parseBoolean(isCompiled));
+				}
+				if(commandLine.hasOption("millis")){
+					manager.setMillis(Long.parseLong(commandLine.getOptionValue("millis")));
 				}
 
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				e.printStackTrace();
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
+				printHelp(options);
+				returnValue = 10;
 			}
 
 		} catch (ParseException e1) {
@@ -93,11 +92,7 @@ public class ${managerClassName} {
 			printHelp(options);
 			returnValue = 10;
 		}
-		try {
-			Thread.sleep(10000L);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+
 		System.exit(returnValue);
 	}
 
@@ -198,6 +193,11 @@ public class ${managerClassName} {
 				.hasArg()//
 				.argName("password")
 				.numberOfArgs(1).build());
+		options.addOption(Option//
+				.builder("millis")//
+				.desc("The millisec to wait between checking the action.")//
+				.hasArg()//
+				.argName("millisec").numberOfArgs(1).build());
 
 		OptionGroup helpOptionGroup = new OptionGroup();
 		helpOptionGroup.addOption(Option.builder("h")//
@@ -239,6 +239,10 @@ public class ${managerClassName} {
 		String header = "${symbol_escape}nA deployer and manager for for a version database on the blockchain. (c) Urs Zeidler 2017n";
 		String footer = "${symbol_escape}nexample: ${symbol_escape}n${symbol_escape}n" + buffer.toString();
 		formatter.printHelp(150, "checksum database on the blockchain", header, options, footer, true);
+	}
+
+	public void setMillis(long millis) {
+		this.millis = millis;
 	}
 
 }
