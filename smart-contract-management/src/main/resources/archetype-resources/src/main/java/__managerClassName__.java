@@ -7,6 +7,7 @@
 package ${package};
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -24,6 +25,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.io.IOUtils;
 
 
 /**
@@ -79,7 +81,13 @@ public class ${managerClassName} {
 				if(commandLine.hasOption("millis")){
 					manager.setMillis(Long.parseLong(commandLine.getOptionValue("millis")));
 				}
+				if(manager.getManager()!=null && commandLine.hasOption("wca")){
+					String[] values = commandLine.getOptionValues("wca");
+					String filename = values[0];
 
+					File file = new File(filename);
+					IOUtils.write(manager.getManager().contractAddress.withLeading0x(), new FileOutputStream(file),"UTF-8");
+				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				printHelp(options);
@@ -92,7 +100,9 @@ public class ${managerClassName} {
 			returnValue = 10;
 		}
 
-		System.exit(returnValue);
+		//prevent from exit the vm
+		if(System.getProperty("NoExit")==null)
+			System.exit(returnValue);
 	}
 
 	private void setManager(String cdatabaseAddress) throws IOException, InterruptedException, ExecutionException {
@@ -197,6 +207,12 @@ public class ${managerClassName} {
 				.desc("The millisec to wait between checking the action.")//
 				.hasArg()//
 				.argName("millisec").numberOfArgs(1).build());
+		options.addOption(Option//
+				.builder("wca")//
+				.longOpt("writeContractAddress")//
+				.desc("Write contract to file.")//
+				.hasArg()//
+				.argName("filename").numberOfArgs(1).build());
 
 		OptionGroup helpOptionGroup = new OptionGroup();
 		helpOptionGroup.addOption(Option.builder("h")//

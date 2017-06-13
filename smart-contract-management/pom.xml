@@ -4,7 +4,7 @@
 
   <groupId>de.urszeidler.ethereum.smartcontract</groupId>
   <artifactId>smart-contract-management</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>maven-archetype</packaging>
 
   <name>smart-contract-management</name>
